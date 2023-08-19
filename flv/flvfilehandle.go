@@ -19,7 +19,7 @@ import (
 	"os"
 	"log"
 	"bufio"
-	"github.com/oikomi/goflv/util"
+	"github.com/hawkhsieh/goflv/util"
 )
 
 type FlvFileHandle struct {

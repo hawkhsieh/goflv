@@ -20,7 +20,7 @@ import (
 	"log"
 	"encoding/json"
 	"fmt"
-	"github.com/oikomi/goflv/flv"
+	"github.com/hawkhsieh/goflv/flv"
 )
 
 
