@@ -16,6 +16,7 @@
 package flv
 
 import (
+    "strconv"
 	"os"
 	"log"
 	"bufio"
@@ -112,6 +113,25 @@ func (self *FlvFileHandle) FlvReadHeader(fs *FlvFileSpec) error {
 	fs.Header.Version = buf[3]
 	fs.Header.TypeFlags = buf[4]
 	fs.Header.DataOffset = util.Byte42Uint32(buf[5:], 0)
+
+	_, err = self.file.Seek(50,1)
+	if err != nil {
+		log.Fatalln(err.Error())
+		return err
+	}
+
+	unixTBuf := make([]byte, 10)
+	_, err = self.file.Read(unixTBuf)
+	if err != nil {
+		log.Fatalln(err.Error())
+		return err
+	}
+	log.Printf("%s", string(unixTBuf))
+	unixT, err := strconv.Atoi(string(unixTBuf))
+	if err != nil {
+		return err
+	}
+	fs.Header.FirstUnixTime=uint32(unixT)
 
 	return nil
 }

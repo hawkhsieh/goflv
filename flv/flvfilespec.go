@@ -24,6 +24,7 @@ type FlvFileHeader struct {
 	Version uint8
 	TypeFlags uint8
 	DataOffset uint32
+	FirstUnixTime uint32
 }
 
 type FlvFiletags struct {

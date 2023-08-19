@@ -90,7 +90,7 @@ func main() {
 		return
 	}
 	
-	res, _ := json.Marshal(fs)
+	res, _ := json.Marshal(fs.Header)
 	//json.Marshal(fs)
 	fmt.Println(string(res))
 }
